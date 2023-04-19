@@ -1,0 +1,14 @@
+{
+  "name": "queer-bot",
+  "version": "1.0.0",
+  "description": "A utility bot for the Queer Teens Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KatieBuilds",
+  "license": "OQL",
+  "dependencies": {
+    "discord.js": "^14.9.0"
+  }
+}
