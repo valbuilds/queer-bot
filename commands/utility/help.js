@@ -9,8 +9,11 @@ module.exports = {
         const helpEmbed = new EmbedBuilder()
             .setTitle(`Help`)
             .addFields(
-                { name: `Test`, value: `I'm stupid. :/` }
+                { name: `Utility`, value: '</help:1102412097473761380> - Replies with this message.\n</roles list:1102416366646071306> + </roles modify:1102416366646071306> - *(Beta command)* Self roles.' }
             )
+            .setFooter({ text: `Version 0.2a` })
+            .setTimestamp()
+            .setColor(`Blurple`)
 
         return interaction.reply({ embeds:[helpEmbed], ephemeral: true });
     }
