@@ -26,7 +26,7 @@ for (const folder of commandFolders) {
 }
 
 client.once(Events.ClientReady, () => {
-	client.user.setActivity('Server Management', { type: ActivityType.Playing });
+	client.user.setActivity('Pride, year round! | Ver. Alpha 0.2b', { type: ActivityType.Listening });
 	console.log('Ready!');
 });
 
