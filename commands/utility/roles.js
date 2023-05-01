@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require(`discord.js`);
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuOptionBuilder } = require(`discord.js`);
 
 module.exports = {
     cooldown: 10,
@@ -17,21 +17,7 @@ module.exports = {
                             { name: `Colours`, value: `colours` },
                             { name: `Pronouns`, value: `pronouns` },
                             { name: `Pings`, value: `pings` },
-                        )))
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName(`modify`)
-                .setDescription(`Change your roles.`)
-                .addStringOption(option =>
-                    option
-                    .setName(`category`)
-                    .setDescription(`Choose a category`)
-                        .addChoices(
-                            { name: `Colours`, value: `colours` },
-                            { name: `Pronouns`, value: `pronouns` },
-                            { name: `Pings`, value: `pings` },
-                        )
-                        .setRequired(true))),
+                        ))),
     async execute(interaction) {
 
         const sub = interaction.options.getSubcommand()
@@ -44,7 +30,7 @@ module.exports = {
             modifyRoles();
         }
 
-        function listRoles() {
+        async function listRoles() {
             const cat = interaction.options.getString(`category`);
 
             const listAll = new EmbedBuilder()
@@ -90,10 +76,6 @@ module.exports = {
                     return interaction.reply({ embeds: [listPings], ephemeral: true })
                 }
             }
-        }
-
-        function modifyRoles() {
-            return interaction.reply({ content: `Coming soon:tm:`, ephemeral: true })
         }
     }
 }
