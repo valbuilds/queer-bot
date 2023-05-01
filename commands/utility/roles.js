@@ -41,28 +41,24 @@ module.exports = {
                     { name: `Pings`, value: `working on it...` },
                 )
                 .setTimestamp()
-                .setFooter({ text: `Use /roles modify to change your roles.` })
                 .setColor(`Greyple`)
 
             const listColours = new EmbedBuilder()
                 .setTitle(`Self-Roles - Colours`)
                 .setDescription(`<@&1102126828619042898>\n<@&1102126830133194832>\n<@&1102126831055929414>\n<@&1102126832045797406>\n<@&1102126833207623721>`)
                 .setTimestamp()
-                .setFooter({ text: `Use /roles modify to change your roles.` })
                 .setColor(`Greyple`)
 
             const listPronouns = new EmbedBuilder()
                 .setTitle(`Self-Roles - Colours`)
                 .setDescription(`<@&1102126851247325194>\n<@&1102126852232990720>\n<@&1102405776531796029>\n<@&1102405879233523832>\n<@&1102405879808147506>\n<@&1102406005381402674>\n<@&1102406132544307301>\n<@&1102406179411460206>\n<@&1102406219517411358>\n<@&1102406257043841064>\n<@&1102406257731715172>\n<@&1102406583247437884>\n<@&1102406716722790571>`)
                 .setTimestamp()
-                .setFooter({ text: `Use /roles modify to change your roles.` })
                 .setColor(`Greyple`)
 
             const listPings = new EmbedBuilder()
                 .setTitle(`Self-Roles - Pings`)
                 .setDescription(`soon:tm:`)
                 .setTimestamp()
-                .setFooter({ text: `Use /roles modify to change your roles.` })
                 .setColor(`Greyple`)
 
             if (!cat) {

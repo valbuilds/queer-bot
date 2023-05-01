@@ -26,8 +26,8 @@ for (const folder of commandFolders) {
 }
 
 client.once(Events.ClientReady, () => {
-	client.user.setActivity('Pride | Ver. Alpha 0.2b', { type: ActivityType.Listening });
-	console.log('Ready!');
+	client.user.setActivity('Pride | Ver. Alpha 0.3', { type: ActivityType.Playing });
+	console.log('Online!');
 });
 
 client.on(Events.InteractionCreate, async interaction => {
