@@ -11,7 +11,7 @@ module.exports = {
             .addFields(
                 { name: `Utility`, value: '</help:1102412097473761380> - Replies with this message.\n</roles list:1102416366646071306> + </roles modify:1102416366646071306> - *(Beta command)* Self roles.' }
             )
-            .setFooter({ text: `Version 0.2a` })
+            .setFooter({ text: `Version 0.2b` })
             .setTimestamp()
             .setColor(`Blurple`)
 
