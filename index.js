@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, ActivityType } = require('discord.js');
 const { token } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -26,6 +26,7 @@ for (const folder of commandFolders) {
 }
 
 client.once(Events.ClientReady, () => {
+	client.user.setActivity('Server Management', { type: ActivityType.Playing });
 	console.log('Ready!');
 });
 
