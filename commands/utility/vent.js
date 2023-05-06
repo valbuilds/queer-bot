@@ -6,10 +6,12 @@ module.exports = {
         .setDescription(`Need to get something off your chest?`)
         .addStringOption(option =>
             option.setName(`details`)
-                .setDescription(`Talk it out, babe.`))
+                .setDescription(`Talk it out, babe.`)
+                .setRequired(true))
         .addBooleanOption(option =>
             option.setName(`anon`)
-                .setDescription(`Want to secretly send in a rant? Set this to true.`)),
+                .setDescription(`Want to secretly send in a rant? Set this to true.`)
+                .setRequired(true)),
     async execute(interaction) {
         const anon = interaction.options.getBoolean(`anon`);
         const rant = interaction.options.getString(`details`);
