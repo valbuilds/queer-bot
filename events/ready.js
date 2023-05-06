@@ -5,7 +5,7 @@ module.exports = {
 	name: Events.ClientReady,
 	once: true,
 	execute(client) {
-        client.user.setActivity(`${status}`, { type: ActivityType.Playing });
+        client.user.setActivity(`/help・v0.4`, { type: ActivityType.Listening });
         console.log('Online!');
 	},
 };
