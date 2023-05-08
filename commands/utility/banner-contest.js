@@ -15,7 +15,7 @@ module.exports = {
         const avatar = user.avatarURL(
             { format: 'png', size: 512, forceStatic: false }
         );
-        const channel = interaction.client.channels.cache.get('1105242290852724866'); // 1105238887057600544
+        const channel = interaction.client.channels.cache.get('1105238887057600544');
         const attachment = interaction.options.getAttachment(`submission`);
         const subId = Math.floor(Math.random() * 9999);
 
