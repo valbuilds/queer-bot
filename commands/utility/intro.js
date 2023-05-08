@@ -55,7 +55,7 @@ module.exports = {
         
         const name = interaction.options.getString(`name`); // free-string
         const age = interaction.options.getString(`age`); // free-string, not required
-        const astro = interaction.options.getString(`astrological-sign`); // free-string, not required
+        const astro = interaction.options.getString(`astrological-sign`); // free-string
         const gender = interaction.options.getString(`gender`); // free-string
         const orientation = interaction.options.getString(`orientation`); // free-string
         const origins = interaction.options.getString(`origins`); // free-string
@@ -69,6 +69,7 @@ module.exports = {
             .setTitle(`All about ${user.username}!`)
             .setColor(`Blurple`)
             .setFooter({ text: 'This message includes user-written content. Queer Bot, nor the maker of, endorse the content.' })
+
         const emb2Age = new EmbedBuilder()
             .setTitle(`Identity`)
             .setColor(`Blurple`)
@@ -115,7 +116,7 @@ module.exports = {
             )
             .setFooter({ text: 'This message includes user-written content. Queer Bot, nor the maker of, endorse the content.' })
         
-        if (age === `null`) {
+        if (age === ``) {
             return interaction.reply({ content: `<@${user.id}>`, embeds: [emb1, emb2, emb3], ephemeral: false });
         } else {
             return interaction.reply({ content: `<@${user.id}>`, embeds: [emb1, emb2Age, emb3], ephemeral: false });

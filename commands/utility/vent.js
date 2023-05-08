@@ -23,6 +23,7 @@ module.exports = {
         })
 
         const logA = new EmbedBuilder()
+            .setAuthor({ name: `⚠️ Messaging a user who sent an anonymous vent without proper reasoning is abuse and is grounds for demotion.` })
             .setTitle(`Anonymous Rant ID #${id}`)
             .setDescription(`> ${rant}`)
             .setColor(`Gold`)
