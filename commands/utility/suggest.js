@@ -44,8 +44,6 @@ module.exports = {
             .setAuthor({ name: `Anonomous` })
             .setColor(`Gold`)
 
-        console.log(suggestion.length);
-
         async function ru() {
             if (anon === `true`) {
                 await channel.threads.create({ name: `${suggestion}`, message: { embeds: [suggestedA] } });
