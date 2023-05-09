@@ -21,7 +21,7 @@ module.exports = {
         const output = (step1 + 32);
 
         const userFeedback = new EmbedBuilder()
-            .setTitle(`Fahrenheit to Celsius`)
+            .setTitle(`Celsius to Fahrenheit`)
             .setDescription(`${input}°C is **${output}°F.**`)
             .setColor(`Blurple`)
             .setAuthor({ name: `${member.displayName}`, iconURL: `${userPfp}` });
