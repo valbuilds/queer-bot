@@ -20,7 +20,8 @@ module.exports = {
         const userPfp = user.avatarURL({
             extension: `png`,
             forceStatic: false
-        })
+        });
+        const member = interaction.member;
 
         const logA = new EmbedBuilder()
             .setAuthor({ name: `⚠️ Messaging a user who sent an anonymous vent without proper reasoning is abuse and is grounds for demotion.` })
@@ -39,7 +40,7 @@ module.exports = {
             .setTitle(`Anonymous Rant ID #${id}`)
             .setDescription(`> ${rant}`)
             .setColor(`Gold`)
-            .setAuthor({ name: `${user.username}`, iconURL: `${userPfp}` })
+            .setAuthor({ name: `${member.displayName}`, iconURL: `${userPfp}` })
 
         async function ano() {
             const channel = interaction.client.channels.cache.get('1102132112280277052');
