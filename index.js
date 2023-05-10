@@ -23,7 +23,7 @@ for (const folder of commandFolders) {
 	}
 }
 
-client.on(Events.InteractionCreate, async interaction =>{
+client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
@@ -49,7 +49,17 @@ client.on(Events.InteractionCreate, async interaction =>{
 			return interaction.reply({ content: `Please wait, you are on a cooldown for \`${command.data.name}\`. You can use it again <t:${expiredTimestamp}:R>.`, ephemeral: true });
 		}
 	}
-})
+
+	timestamps.set(interaction.user.id, now);
+	setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+	}
+});
 
 client.on(`message`, async message => {
 	if (message.author.id === `650358609955389452`) {
