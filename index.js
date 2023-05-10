@@ -51,6 +51,14 @@ client.on(Events.InteractionCreate, async interaction =>{
 	}
 })
 
+client.on(`message`, async message => {
+	if (message.author.id === `650358609955389452`) {
+		return message.react(`<:brisket:1104077608297168966>`);
+	} else if (message.channel.id === `1102126897535660093`) {
+		return message.react(`🎉`);
+	}
+})
+
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
