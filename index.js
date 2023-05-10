@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
-const { token } = require('./config.json');
+const { Client, Collection, GatewayIntentBits, Events, ActivityType } = require('discord.js');
+const { token, status, statusType } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -22,6 +22,25 @@ for (const folder of commandFolders) {
 		}
 	}
 }
+
+client.on(Events.ClientReady, async client => {
+
+	if (statusType === `playing`) {
+		client.user.setActivity(`${status}`, { type: ActivityType.Playing });
+		console.log(`Status: Playing ${status}`);
+	} else if (statusType === `listening`) {
+		client.user.setActivity(`${status}`, { type: ActivityType.Listening });
+		console.log(`Status: Listening to ${status}`);
+	} else if (statusType === `watching`) {
+		client.user.setActivity(`${status}`, { type: ActivityType.Watching });
+		console.log(`Status: Watching ${status}`);
+	} else if (statusType === `competing`) {
+		client.user.setActivity(`${status}`, { type: ActivityType.Competing });
+		console.log(`Status: Competing in ${status}`);
+	}
+
+	console.log('Online!');
+})
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
@@ -68,18 +87,5 @@ client.on(`message`, async message => {
 		return message.react(`🎉`);
 	}
 })
-
-const eventsPath = path.join(__dirname, 'events');
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
-
-for (const file of eventFiles) {
-	const filePath = path.join(eventsPath, file);
-	const event = require(filePath);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
-}
 
 client.login(token);
