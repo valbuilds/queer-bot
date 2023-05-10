@@ -22,9 +22,9 @@ module.exports = {
 
         const userFeedback = new EmbedBuilder()
             .setTitle(`Celsius to Fahrenheit`)
-            .setDescription(`${input}°C is **${output}°F.**`)
+            .setDescription(`${input}°C is equal to **${output}°F.**`)
             .setColor(`Blurple`)
-            .setAuthor({ name: `${member.displayName}`, iconURL: `${userPfp}` });
+            .setAuthor({ name: `${member.displayName}`, iconURL: `${userPfp}` })
 
         return interaction.reply({ embeds: [userFeedback] });
     }

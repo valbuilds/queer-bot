@@ -2,8 +2,8 @@ const { SlashCommandBuilder, EmbedBuilder, Embed } = require(`discord.js`);
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName(`convert-fahrenheit-to-celsius`)
-        .setDescription(`REMOVE THE FREEDOM`)
+        .setName(`convert-feet-to-meters`)
+        .setDescription(`no more freedom 😔`)
         .addNumberOption(option =>
             option.setName(`input`)
                 .setDescription(`input`)
@@ -17,14 +17,13 @@ module.exports = {
         });
         const member = interaction.member;
 
-        const step1 = (input - 32);
-        const output = (step1 / 1.8);
+        const output = (input / 3.2808);
 
         const userFeedback = new EmbedBuilder()
-            .setTitle(`Fahrenheit to Celsius`)
-            .setDescription(`${input}°F is **${output}°C.**`)
+            .setTitle(`Feet to Meters`)
+            .setDescription(`${input} feet is equal to **${output} meters**.`)
             .setColor(`Blurple`)
-            .setAuthor({ name: `${member.displayName}`, iconURL: `${userPfp}` });
+            .setAuthor({ name: `${member.displayName}`, iconURL: `${userPfp}` })
 
         return interaction.reply({ embeds: [userFeedback] });
     }
