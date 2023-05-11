@@ -1,10 +1,11 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, GatewayIntentBits, Events, ActivityType } = require('discord.js');
-const { token, status, statusType } = require('./config.json');
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { token, status } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+client.cooldowns = new Collection();
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
@@ -23,24 +24,20 @@ for (const folder of commandFolders) {
 	}
 }
 
-client.on(Events.ClientReady, async client => {
+client.once(Events.ClientReady, () => {
+	client.user.setActivity(`${status}`);
 
-	if (statusType === `playing`) {
-		client.user.setActivity(`${status}`, { type: ActivityType.Playing });
-		console.log(`Status: Playing ${status}`);
-	} else if (statusType === `listening`) {
-		client.user.setActivity(`${status}`, { type: ActivityType.Listening });
-		console.log(`Status: Listening to ${status}`);
-	} else if (statusType === `watching`) {
-		client.user.setActivity(`${status}`, { type: ActivityType.Watching });
-		console.log(`Status: Watching ${status}`);
-	} else if (statusType === `competing`) {
-		client.user.setActivity(`${status}`, { type: ActivityType.Competing });
-		console.log(`Status: Competing in ${status}`);
-	}
+	// STATUS TYPES
+	// Un-comment ONE of the following types.
+	// Leaving them all commented will result in the 'Playing' status.
+	// Un-commenting more than one will set the status to the closest one to the bottom.
 
-	console.log('Online!');
-})
+	// client.user.setActivity('activity', { type: ActivityType.Watching });
+	// client.user.setActivity('activity', { type: ActivityType.Listening });
+	// client.user.setActivity('activity', { type: ActivityType.Competing });
+
+	console.log('Ready!');
+});
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
@@ -79,13 +76,5 @@ client.on(Events.InteractionCreate, async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
-
-client.on(`message`, async message => {
-	if (message.author.id === `650358609955389452`) {
-		return message.react(`<:brisket:1104077608297168966>`);
-	} else if (message.channel.id === `1102126897535660093`) {
-		return message.react(`🎉`);
-	}
-})
 
 client.login(token);

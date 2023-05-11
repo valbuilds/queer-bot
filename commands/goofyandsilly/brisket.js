@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require(`discord.js`);
 
 module.exports = {
+    cooldown: 15,
     data: new SlashCommandBuilder()
         .setName(`brisket`)
         .setDescription(`brisket best girl <3`),
