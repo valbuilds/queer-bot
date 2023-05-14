@@ -26,14 +26,19 @@ module.exports = {
                 { name: `Party`, value: `${party}` },
             )
 
-        const thread = await channel.threads.create({
-            name: `${member.displayName}`,
-            autoArchiveDuration: 60,
-            type: ChannelType.PrivateThread,
-            invitable: false,
-        });
-        await thread.send({ content: `<@${member.id}>, <@396723826232262656>`, embeds: [form] });
-        await thread.members.add(`${member.id}`);
-        return interaction.reply({ content: `Submission sent.` });
+
+        if (party.length > 100) {
+            return interaction.reply({ content: `Please make sure your party name is under 100 characters.` });
+        } else {
+            const thread = await channel.threads.create({
+                name: `${member.displayName}`,
+                autoArchiveDuration: 60,
+                type: ChannelType.PrivateThread,
+                invitable: false,
+            });
+            await thread.send({ content: `<@${member.id}>, <@396723826232262656>`, embeds: [form] });
+            await thread.members.add(`${member.id}`);
+            return interaction.reply({ content: `Submission sent.` });
+        }
     }
 }
