@@ -18,7 +18,9 @@ module.exports = {
         const channel = interaction.client.channels.cache.get('1107149668816793660');
         const link = interaction.options.getString(`submission`);
         const subId = Math.floor(Math.random() * 9999);
-
+        
+        return interaction.reply({ content: `Submissions are now closed.`, ephemeral: true });
+            
         if (link.startsWith(`https://song.link/`)) {
             isSongLink();
         } else {
