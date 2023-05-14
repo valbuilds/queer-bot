@@ -6,10 +6,12 @@ module.exports = {
         .setDescription(`Enroll in the elections!`)
         .addStringOption(option =>
             option.setName(`campaign-name`)
-                .setDescription(`Name your campaign!`))
+                .setDescription(`Name your campaign!`)
+                .setRequired(true))
         .addStringOption(option =>
             option.setName(`party`)
-                .setDescription(`What party do you want to be affiliated with?`)),
+                .setDescription(`What party do you want to be affiliated with?`)
+                .setRequired(true)),
     async execute(interaction) {
         const member = interaction.member;
         const cName = interaction.options.getString(`campaign-name`);
