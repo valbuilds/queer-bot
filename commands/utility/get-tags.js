@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, ChannelType, Embed } = require(`discord.js`)
+const { SlashCommandBuilder, EmbedBuilder, ChannelType, PermissionFlagsBits } = require(`discord.js`)
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,7 +8,8 @@ module.exports = {
             option.setName(`channel`)
                 .setDescription(`MUST BE FORUM CHANNEL`)
                 .addChannelTypes(ChannelType.GuildForum)
-                .setRequired(true)),
+                .setRequired(true))
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction) {
         const channel = interaction.options.getChannel(`channel`)
         const member = interaction.member;
@@ -23,6 +24,6 @@ module.exports = {
         
         console.log(channel.availableTags);
 
-        return interaction.reply({ content: `${member.id}`, embeds: [reply], ephemeral: true })
+        return interaction.reply({ content: `The tags are in the bots console.`, ephemeral: true })
     }
 }
