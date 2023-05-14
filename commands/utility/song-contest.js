@@ -33,7 +33,7 @@ module.exports = {
                 .setColor(`Blurple`)
                 .setTimestamp()
             
-            await channel.threads.create({ content: `<@${member.id}>`, name: `Submission #${subId}`, message: { embeds: [submission] }, appliedTags: [`1107179394654548059`, `1107192367569698886`] });
+            await channel.threads.create({ content: `<@${member.id}>`, name: `Submission #${subId}`, message: { embeds: [submission] }, appliedTags: [`1107179394654548059`, `1107192294983090176`] });
             return interaction.reply({ content: `Submission sent!`, ephemeral: true, embeds: [submission] });
         }
 
