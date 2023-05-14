@@ -19,6 +19,7 @@ module.exports = {
         const link = interaction.options.getString(`submission`);
         const subId = Math.floor(Math.random() * 9999);
         
+        // comment the following line to accept submissions.
         return interaction.reply({ content: `Submissions are now closed.`, ephemeral: true });
             
         if (link.startsWith(`https://song.link/`)) {
