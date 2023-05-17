@@ -2,8 +2,8 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require(`disc
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName(`accept-submission`)
-        .setDescription(`Accepts music submissions.`)
+        .setName(`deny-music-submission`)
+        .setDescription(`Denies music submissions.`)
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption(option =>
             option.setName(`title`)
@@ -26,13 +26,13 @@ module.exports = {
         const creator = interaction.options.getString(`creator`);
         const reason = interaction.options.getString(`reason`);
         const explicit = interaction.options.getBoolean(`explicit`);
-        const acceptedBy = interaction.member;
+        const deniedBy = interaction.member;
 
         const channel = interaction.channel;
 
         const reply = new EmbedBuilder()
-            .setTitle(`✅ Accepted`)
-            .setDescription(`<@${acceptedBy.id}> has accepted this submission.`)
+            .setTitle(`❎ Denied`)
+            .setDescription(`<@${deniedBy.id}> has denied this submission.`)
             .addFields(
                 { name: `Song name`, value: `${title}` },
                 { name: `Song author`, value: `${creator}` },
@@ -56,7 +56,7 @@ module.exports = {
 
         async function finalize() {
             await channel.setName(`${title} by ${creator}`);
-            await channel.setAppliedTags([`1107150473900855336`]);
+            await channel.setAppliedTags([`1107150512580734976`]);
             await interaction.reply({ embeds: [reply] });
             await channel.setLocked(true);
         }

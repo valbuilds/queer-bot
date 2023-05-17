@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require(`discord.js`)
 module.exports = {
     cooldown: 120,
     data: new SlashCommandBuilder()
-        .setName(`banner`)
+        .setName(`submit-banner`)
         .setDescription(`Submit an image to the banner contest!`)
         .addAttachmentOption(option =>
             option.setName(`submission`)
@@ -19,6 +19,9 @@ module.exports = {
         const attachment = interaction.options.getAttachment(`submission`);
         const subId = Math.floor(Math.random() * 9999);
 
+        // un-comment the following line to stop accepting submissions.
+        // return interaction.reply({ content: `Submissions are closed.`, ephemeral: true });
+
         if (attachment.contentType.startsWith(`image/`)) {
             isImage();
         } else {
@@ -33,7 +36,11 @@ module.exports = {
                 .setColor(`Blurple`)
                 .setTimestamp()
 
-            await channel.threads.create({ content: `<@${member.id}>`, name: `Submission #${subId}`, message: { embeds: [submission] } });
+            // 1107667009388425336: July 2023
+            // 1108411016469024778: Accepted
+            // 1108411094776676372: Denied
+                
+            await channel.threads.create({ content: `<@${member.id}>`, name: `Submission #${subId}`, message: { embeds: [submission] }, appliedTags: [`1107667009388425336`] });
             return interaction.reply({ content: `Submission sent!`, ephemeral: true, embeds: [submission] });
         }
 

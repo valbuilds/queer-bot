@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require(`discord.js`)
 module.exports = {
     cooldown: 120,
     data: new SlashCommandBuilder()
-        .setName(`music`)
+        .setName(`submit-song-contest`)
         .setDescription(`Submit a bit of music to the music contest!`)
         .addStringOption(option =>
             option.setName(`submission`)
@@ -20,7 +20,7 @@ module.exports = {
         const subId = Math.floor(Math.random() * 9999);
         
         // comment the following line to accept submissions.
-        return interaction.reply({ content: `Submissions are now closed.`, ephemeral: true });
+        return interaction.reply({ content: `Submissions are closed.`, ephemeral: true });
             
         if (link.startsWith(`https://song.link/`)) {
             isSongLink();
