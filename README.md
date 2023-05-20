@@ -70,6 +70,7 @@ node .
 
 :tada: The bot should work with all its sill features!
 Feel free to edit any bits of code you want. (Just remember to follow the license.)
+> Note: Some files are easy edits, they are listed in [EASYEDITS.md](https://github.com/katiebuilder/queer-bot/blob/main/EASYEDITS.md)
 
 <hr>
 
