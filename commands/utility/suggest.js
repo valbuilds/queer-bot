@@ -11,7 +11,7 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option =>
             option.setName(`anon`)
-                .setDescription(`Set this to true if you want to send a suggestion anonomously.`)
+                .setDescription(`Set this to true if you want to send a suggestion anonymously.`)
                 .setRequired(true)
                 .addChoices(
                     { name: `True`, value: `true` },
@@ -41,7 +41,7 @@ module.exports = {
         const suggestedA = new EmbedBuilder()
             .setTitle(`Suggestion`)
             .setDescription(`> ${suggestion}`)
-            .setAuthor({ name: `Anonomous` })
+            .setAuthor({ name: `Anonymous` })
             .setColor(`Gold`)
 
         async function ru() {
