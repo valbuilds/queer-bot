@@ -1,3 +1,6 @@
+<h1 align="center">This project has been moved.</h1>
+<h2 align="center">The new repository is <a href="https://github.com/violetbuilds/qbot/">here</a></h2>
+<hr>
 <h1 align="center">Hi! I'm Queer Bot.</h1>
 <h2 align="center">I can help in the most silly situations.</h2>
 <hr>
